@@ -1,43 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import {supabase} from '../supabase'; // Import supabase client
+import Post from '../components/Posts'; // Import the Post component
 
-const HomeFeed = ({ posts }) => {
-  const [sortedPosts, setSortedPosts] = useState([]);
-  const [sortBy, setSortBy] = useState('createdTime');
+const HomeFeed = () => {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    sortPosts();
-  }, [posts, sortBy]);
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('Posts')
+          .select('*');
 
-  const sortPosts = () => {
-    const sorted = [...posts].sort((a, b) => {
-      if (sortBy === 'createdTime') {
-        return new Date(b.createdTime) - new Date(a.createdTime);
-      } else {
-        return b.upvotes - a.upvotes;
+        if (error) {
+          throw error;
+        }
+
+        setPosts(data);
+      } catch (error) {
+        console.error('Error fetching posts:', error.message);
       }
-    });
-    setSortedPosts(sorted);
-  };
+    };
 
-  const handleSortChange = (e) => {
-    setSortBy(e.target.value);
-  };
+    fetchPosts();
+  }, []);
 
   return (
-    <div>
-      <select value={sortBy} onChange={handleSortChange}>
-        <option value="createdTime">Sort by Created Time</option>
-        <option value="upvotes">Sort by Upvotes</option>
-      </select>
-      <ul>
-        {sortedPosts.map((post) => (
-          <li key={post.id}>
-            <div>
-              <p>{post.title}</p>
-              <p>{post.createdTime}</p>
-              <p>{post.upvotes} upvotes</p>
-            </div>
-          </li>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <h2>Home Feed</h2>
+      <ul style={{ padding: 0, listStyle: 'none' }}>
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
         ))}
       </ul>
     </div>
