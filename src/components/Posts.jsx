@@ -1,20 +1,23 @@
 import React from 'react';
+import '../App.css';
 
 const Post = ({ post }) => {
+  const calculateHoursDifference = (createdAt) => {
+    const createdTime = new Date(createdAt);
+    const currentTime = new Date();
+    const timeDifference = currentTime - createdTime;
+    const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60)); // Convert milliseconds to hours
+    return hoursDifference;
+  };
+  
+  
   return (
-    <li key={post.id} style={{ marginBottom: '20px' }}>
-      <div>
-        <p>{post.title}</p>
-        <p>{post.created_at}</p>
-        <p>{post.upvotes} upvotes</p>
-        {post.image_url && (
-          <img
-            src={post.image_url}
-            alt="Post Image"
-            style={{ maxWidth: '400px', maxHeight: '400px', width: 'auto', height: 'auto' }}
-          />
-        )}
-      </div>
+    <li className="post-item">
+        <div className="post-content">
+          <h3>{post.title}</h3>
+          <p>{post.upvotes} Upvotes</p>
+          <p>{calculateHoursDifference(post.created_at)} hours ago</p>
+        </div>
     </li>
   );
 };
