@@ -15,7 +15,7 @@ const Post = ({ post }) => {
     <li className="post-item">
         <div className="post-content">
           <h3>{post.title}</h3>
-          <p>{post.upvotes} Upvotes</p>
+          <p>{post.upvotes ? post.upvotes : 0} Upvotes</p>
           <p>{calculateHoursDifference(post.created_at)} hours ago</p>
         </div>
     </li>

@@ -4,7 +4,7 @@ import Post from '../components/Posts'; // Import the Post component
 import { Link } from 'react-router-dom';
 import '../App.css';
 
-const HomeFeed = () => {
+const HomeFeed = ({ searchQuery, setSearchQuery }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -17,15 +17,21 @@ const HomeFeed = () => {
         if (error) {
           throw error;
         }
+      
+        // Filter posts by title if search query is provided
+        let filteredData = data;
+        if (searchQuery) {
+          filteredData = data.filter(post => post.title.toLowerCase().includes(searchQuery.toLowerCase()));
+        }
 
-        setPosts(data);
+        setPosts(filteredData);
       } catch (error) {
         console.error('Error fetching posts:', error.message);
       }
     };
 
     fetchPosts();
-  }, []);
+  }, [searchQuery]);
   
   const handleSortByNewest = () => {
     const sortedPosts = [...posts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -36,6 +42,7 @@ const HomeFeed = () => {
     const sortedPosts = [...posts].sort((a, b) => b.upvotes - a.upvotes);
     setPosts(sortedPosts);
   };
+
 
   return (
     <div className="home-feed-container">

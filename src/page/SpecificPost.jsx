@@ -60,6 +60,16 @@ const PostDetails = () => {
     return hoursDifference;
   };
 
+  const handleDeletePost = async () => {
+    try {
+      // Delete the post from the database
+      await supabase.from('Posts').delete().eq('id', postId);
+      // Redirect the user to the home page after successful deletion
+      window.location.href = '/'; // Navigate to the home page
+    } catch (error) {
+      console.error('Error deleting post:', error.message);
+    }
+  };
   
   return (
     <div className='post-content post-details-container'>
@@ -67,9 +77,10 @@ const PostDetails = () => {
       <h2>{post.title}</h2>
       {post.textual_content && <p>{post.textual_content}</p>}
       {post.image_url && <img src={post.image_url} alt="Post Image" />}
-      <p>{post.upvotes} Upvotes</p>
+      <p>{post.upvotes ? post.upvotes : 0} Upvotes</p>
       <button onClick={() => handleUpvoteInPost(post.id)}>Upvote</button>
       <Link to={`/posts/${post.id}/edit`} className="edit-button">Edit</Link>
+      <button onClick={handleDeletePost} className="edit-button">Delete</button>
     </div>
   );
 };
