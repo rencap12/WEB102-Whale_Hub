@@ -4,7 +4,7 @@ Submitted by: **Reneca Capuno**
 
 This web app: **enables any and all users to share and interact with posts about whales!**
 
-Time spent: **12** hours spent in total
+Time spent: **11** hours spent in total
 
 ## Required Features
 
