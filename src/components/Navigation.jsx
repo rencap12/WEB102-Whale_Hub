@@ -14,10 +14,12 @@ const Navigation = ({ setSearchQuery }) => {
     setSearchQuery('');
   };
 
-
   return (
     <nav className="navbar">
-      <h1>Whale Hub-a-Dub</h1>
+      <div className="navbar-left">
+        <img src='/whale_logo.png' alt="whale_logo" style={{ height: '100px', width: '80px', marginRight: '5px' }} />
+        <h1>Whale Hub-a-Dub</h1>
+      </div>
       <div className="search-bar">
         <input
           type="text"

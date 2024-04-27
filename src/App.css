@@ -154,16 +154,19 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .sort-buttons button {
   margin: 0 10px;
-  padding: 8px 16px;
+  padding: 4px 16px 20px 20px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height: 40px;
+  font-size: 30px;
 }
 
 .sort-buttons button:hover {
@@ -209,15 +212,18 @@ body {
 .post-content button {
   background-color: #007bff;
   color: #fff;
-  padding: 8px 16px;
+  padding: 16px 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .post-content button:hover {
   background-color: #0056b3;
 }
+
+/* SpecificPost.css */
 
 .post-details-container {
   display: flex;
@@ -225,9 +231,14 @@ body {
   align-items: center;
   justify-content: center;
   margin: 20px auto;
-  max-width: 800px; /* Adjust the maximum width as needed */
+  max-width: 1000px; /* Adjust the maximum width as needed */
   background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Adjust width as needed */
 }
+
 
 
 
@@ -249,6 +260,7 @@ body {
 
 .nav-item {
   margin-right: 20px;
+  font-size: larger;
 }
 
 .nav-link {
@@ -270,10 +282,17 @@ body {
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
-  position: relative; /* Position relative for containing the search bar */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
 }
 
 .search-bar {
@@ -295,10 +314,14 @@ body {
   background-color: #007bff;
   color: #fff;
   padding: 22px 20px;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.button-container {
+  display: flex;
 }
 
 .edit-button {
@@ -315,3 +338,105 @@ body {
   background-color: #0056b3;
 }
 
+/* Comments.css */
+
+.comments-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Adjust width as needed */
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.comment-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-input {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.comment-submit-button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  padding: 20px 30px 20px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  height: 45px;
+}
+
+.comment-submit-button:hover {
+  background-color: #0056b3;
+}
+
+.selection-of-buttons button{
+  margin: 10px;
+}
+
+.order-by {
+  font-size: 30px;
+  padding-bottom: 10px;
+  margin-right: 10px;
+}
+
+/*loading*/
+/* HTML: <div class="loader"></div> */
+.loader {
+  font-weight: bold;
+  font-family: monospace;
+  display: inline-grid;
+  font-size: 30px;
+}
+.loader:before,
+.loader:after {
+  content:"Loading...";
+  grid-area: 1/1;
+  -webkit-mask-size: 1.5ch 100%,100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: xor;
+          mask-composite:exclude;
+  animation: l36-1 1s infinite;
+}
+.loader:before {
+  -webkit-mask-image:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+}
+.loader:after {
+  -webkit-mask-image:linear-gradient(#000 0 0);
+  animation:
+    l36-1  1s infinite,
+    l36-2 .2s infinite cubic-bezier(0.5,200,0.5,-200);
+}
+
+@keyframes l36-1{
+  0%   {-webkit-mask-position:0     0,0 0}
+  20%  {-webkit-mask-position:.5ch  0,0 0}
+  40%  {-webkit-mask-position:100%  0,0 0}
+  60%  {-webkit-mask-position:4.5ch 0,0 0}
+  80%  {-webkit-mask-position:6.5ch 0,0 0}
+  100% {-webkit-mask-position:2.5ch 0,0 0}
+}
+@keyframes l36-2{
+  100% {transform:translateY(0.2px)} 
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../supabase'; // Import supabase client
+import Comments from '../components/Comments';
 import '../App.css';
 
 const PostDetails = () => {
@@ -30,7 +31,7 @@ const PostDetails = () => {
   }, [postId]);
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <div className='loader'></div>;
   }
 
   const handleUpvoteInPost = async (postId) => {
@@ -78,9 +79,12 @@ const PostDetails = () => {
       {post.textual_content && <p>{post.textual_content}</p>}
       {post.image_url && <img src={post.image_url} alt="Post Image" />}
       <p>{post.upvotes ? post.upvotes : 0} Upvotes</p>
-      <button onClick={() => handleUpvoteInPost(post.id)}>Upvote</button>
-      <Link to={`/posts/${post.id}/edit`} className="edit-button">Edit</Link>
-      <button onClick={handleDeletePost} className="edit-button">Delete</button>
+      <Comments postId={postId}/>
+      <div className='selection-of-buttons'>
+        <button onClick={() => handleUpvoteInPost(post.id)} className='edit-button'>Upvote</button>
+        <Link to={`/posts/${post.id}/edit`} className="edit-button">Edit</Link>
+        <button onClick={handleDeletePost} className="edit-button">Delete</button>
+      </div>
     </div>
   );
 };

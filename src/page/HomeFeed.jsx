@@ -48,8 +48,11 @@ const HomeFeed = ({ searchQuery, setSearchQuery }) => {
     <div className="home-feed-container">
       <h2 className="home-feed-title">Home Feed</h2>
       <div className="sort-buttons">
-        <button onClick={handleSortByNewest}>Newest</button>
-        <button onClick={handleSortByMostPopular}>Most Popular</button>
+        <h4 className='order-by'>Order By:</h4>
+        <div className="button-container">
+          <button onClick={handleSortByNewest}>Newest</button>
+          <button onClick={handleSortByMostPopular}>Most Popular</button>
+        </div>
       </div>
       <ul className="post-list">
         {posts.map((post) => (

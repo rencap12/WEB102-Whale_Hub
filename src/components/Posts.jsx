@@ -12,14 +12,19 @@ const Post = ({ post }) => {
   
   
   return (
-    <li className="post-item">
-        <div className="post-content">
-          <h3>{post.title}</h3>
-          <p>{post.upvotes ? post.upvotes : 0} Upvotes</p>
-          <p>{calculateHoursDifference(post.created_at)} hours ago</p>
-        </div>
-    </li>
-  );
+  <li className="post-item">
+    <div className="post-content">
+      <h3>{post.title}</h3>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <img src="/like_pic.png" alt="Thumbs Up" style={{ height: '40px', width: '40px', marginRight: '5px' }} />
+        <p>{post.upvotes > 0 ? post.upvotes : 0} Upvotes</p>
+      </div>
+      <p>{calculateHoursDifference(post.created_at)} hours ago</p>
+    </div>
+  </li>
+);
+
+  
 };
 
 export default Post;
