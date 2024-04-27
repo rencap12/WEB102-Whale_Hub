@@ -1,10 +1,10 @@
-# Web Development Final Project - *Name of App Here*
+# Web Development Final Project - *Whale Hub-a-Dub*
 
-Submitted by: **Your Name Here**
+Submitted by: **Reneca Capuno**
 
-This web app: **insert description**
+This web app: **enables any and all users to share and interact with posts about whales!**
 
-Time spent: **X** hours spent in total
+Time spent: **12** hours spent in total
 
 ## Required Features
 
@@ -31,11 +31,14 @@ The following **optional** features are implemented:
 - [ ] Users can share and view web videos
 - [ ] Users can set flags while creating a post. Then users can filter posts by flags on the home feed.
 - [ ] Users can upload images directly from their local machine as an image file
-- [ ] Display a loading animation whenever data is being fetched
+- [x] Display a loading animation whenever data is being fetched
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
+* [x] List anything else that you added to improve the site's functionality!
+- React Router
+- Error Boundaries
+- URL display information about current user location in web app
 
 ## Video Walkthrough
 
@@ -56,7 +59,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2024 Reneca Capuno
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
