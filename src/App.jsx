@@ -4,6 +4,7 @@ import CreateForm from './components/CreateForm';
 import HomeFeed from './page/HomeFeed';
 import Navigation from './components/Navigation';
 import SpecificPost from './page/SpecificPost';
+import EditPost from './page/EditPost';
 import './App.css';
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path="/" element={<HomeFeed />} />
         <Route exact path="/create" element={<CreateForm />} />
         <Route exact path="/posts/:postId" element={<SpecificPost />} />
+        <Route exact path="/posts/:postId/edit" element={<EditPost />} />
       </Routes>
     </div>
   </Router>

@@ -38,36 +38,38 @@ const CreateForm = () => {
   
 
   return (
-    <div className='notification_msg'>
-      {notification && (
-        <div className={`notification ${notification.type}`}>
-          {notification.message}
-        </div>
-      )}
-      <form className="create-form" onSubmit={handleSubmit}>
-        <input 
-          className="input-field" // Apply CSS class for input fields
-          type="text" 
-          placeholder="Title" 
-          value={title} 
-          onChange={(e) => setTitle(e.target.value)} 
-          required 
-        />
-        <textarea 
-          className="textarea-field" // Apply CSS class for textarea
-          placeholder="Content (Optional)" 
-          value={content} 
-          onChange={(e) => setContent(e.target.value)} 
-        />
-        <input 
-          className="input-field" // Apply CSS class for input fields
-          type="url" 
-          placeholder="Image URL (Optional)" 
-          value={imageUrl} 
-          onChange={(e) => setImageUrl(e.target.value)} 
-        />
-        <button className="submit-button" type="submit">Create Post</button>
-      </form>
+    <div className='create-form-contatiner'>
+      <div className='notification_msg'>
+        {notification && (
+          <div className={`notification ${notification.type}`}>
+            {notification.message}
+          </div>
+        )}
+        <form className="create-form" onSubmit={handleSubmit}>
+          <input 
+            className="input-field" // Apply CSS class for input fields
+            type="text" 
+            placeholder="Title" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            required 
+          />
+          <textarea 
+            className="textarea-field" // Apply CSS class for textarea
+            placeholder="Content (Optional)" 
+            value={content} 
+            onChange={(e) => setContent(e.target.value)} 
+          />
+          <input 
+            className="input-field" // Apply CSS class for input fields
+            type="url" 
+            placeholder="Image URL (Optional)" 
+            value={imageUrl} 
+            onChange={(e) => setImageUrl(e.target.value)} 
+          />
+          <button className="create-submit-button" type="submit">Create Post</button>
+        </form>
+      </div>
     </div>
   );
 };

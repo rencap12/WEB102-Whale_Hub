@@ -62,21 +62,32 @@ body {
   }
   
   /* Styles for the CreateForm component */
+
+  .create-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+  }
+  
 .create-form {
-    max-width: 400px;
-    margin: 0 auto;
+    width: 800px;
+    height: auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 8px;
+    justify-content: center;
   }
   
   .input-field,
   .textarea-field {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    justify-content: center;
   }
   
   .input-field[type="url"] {
@@ -85,7 +96,7 @@ body {
   
   .submit-button {
     display: block;
-    width: 100%;
+    width: 93%;
     padding: 10px;
     background-color: #007bff;
     color: #fff;
@@ -93,9 +104,31 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .create-submit-button {
+    display: block;
+    width: 93%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 29px;
+  }
   
   .submit-button:hover {
     background-color: #0056b3;
+  }
+  .edit-submit-button {
+    display: block;
+    width: 93%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
   }
 
   /* Styles for the HomeFeed component */
@@ -155,6 +188,7 @@ body {
   width: auto;
   height: auto;
   align-content: center;
+  
 }
 
 .post-content h3 {
@@ -184,6 +218,17 @@ body {
 .post-content button:hover {
   background-color: #0056b3;
 }
+
+.post-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  background-color: #f9f9f9;
+}
+
 
 
 /* Navigation.css */
@@ -219,6 +264,9 @@ body {
   text-align: center;
   margin: 10px;
   font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 }
 
 .navbar {
@@ -252,3 +300,18 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+.edit-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../supabase'; // Import supabase client
 import '../App.css';
 
@@ -52,14 +52,24 @@ const PostDetails = () => {
     }
   };
 
+  const calculateHoursDifference = (createdAt) => {
+    const createdTime = new Date(createdAt);
+    const currentTime = new Date();
+    const timeDifference = currentTime - createdTime;
+    const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60)); // Convert milliseconds to hours
+    return hoursDifference;
+  };
+
   
   return (
-    <div className='post-content'>
+    <div className='post-content post-details-container'>
+      <p>{calculateHoursDifference(post.created_at)} hours ago</p>
       <h2>{post.title}</h2>
       {post.textual_content && <p>{post.textual_content}</p>}
       {post.image_url && <img src={post.image_url} alt="Post Image" />}
       <p>{post.upvotes} Upvotes</p>
       <button onClick={() => handleUpvoteInPost(post.id)}>Upvote</button>
+      <Link to={`/posts/${post.id}/edit`} className="edit-button">Edit</Link>
     </div>
   );
 };
